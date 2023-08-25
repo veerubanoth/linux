@@ -55,3 +55,35 @@
 //# mv f4 dir4         --> File will be removed permenently from previous directory and moved to new directory.
 //# mv file10 file20   --> used to rename file10 with file20
 //# rm -rf d*          --> used to delete all the files starting with d letter of it's file name 
+
+
+
+//^ ifconfig                           -->   it used to check the network information 
+//^ yum install net-tools -y           -->   it used to run if config command
+//^ yum install tree -y                -->   to run tree command need to install this package.
+//^ tree                               -->   to check the tree structure of directories and files
+//^ tar cvfz file1.tar file1           -->   It is used to compress the file (zipp). 
+//^ tar xvfz file1.tar file1           -->   It is used to extract the file. 
+//^ ping(packed internet gropher)      -->   used to check the connectivity.        
+
+//^ cal                                      
+//^ cal 2023
+
+//~% Sowftware prerequisite
+//>==>Putty, Putty gen, winSCP and aws account.
+
+//# PUTTY     --> It's used to open remote server in Secure Mode.
+//%  PuTTYgen --> It's used to convert .pem file to .ppk file.
+//* Winscp --> to copy the files from local machine to virtual server(Instance).
+
+
+//>  HVM - Hardware Virtual Machine
+//>  AMI - Amazon Machine Image
+//> pem -> privacy enhanced mail 
+//> ppk -> PuTTY private key
+
+
+//~> HOW TO OPEN A VIRTUAL SERVER BY USING puTTY
+//*   Open puttygen --> Click on Load --> select download --> select .pem file --> Click on Open
+//* --> OK --> Click on save private key --> Yes --> save file in desired location. 
+
