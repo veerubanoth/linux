@@ -93,8 +93,9 @@
 //~% Persistent Storage: Available by attaching EBS volume
 //% EBS VOLUMES are separated from the EC2 instance 
 //% These volumes are logically attached via AWS network
-//% You can diconnect the volume from the EC2 instance maintaining data (data will remain intact)
-//% You can implement encryption & take backup snapshots of all data to your s3.
+//% We can diconnect the volume from the EC2 instance, maintaining data (data will remain intact)
+//% We can implement encryption & take backup snapshots of all data to your s3.
+
 //~% Ephemeral storage: Created by EC2 instances using Local Storage
 //% Storage that physically attached to the underlying host.
 //% when the instance is stopped or terminated, all saved data on disk is lost.
@@ -109,14 +110,22 @@
 //* At the end of EC2 instance creation, you'll need to select an existing key pair or create and download a new one.
 //* KEY PAIR: key pairs are the secure login information required to connect EC2 Instances from remote. 
 //% The Function of key pairs is to encrypt the login information for linux & Windows EC2 instances, and then -
-//% - decrypt the same information allowing you to authenticate ontoo the instance. 
+//% - decrypt the same information allowing you to authenticate onto the instance. 
 //* KEY PAIR CONTAIN: PUBLIC KEY and Private Key 
       //~# PUBLIC KEY :
-      //#  It contains the secure login information in encrypted form
-      //#  The file extension name of public key is .pem (privacy enhanced mail)
+      //#  It contains the secure login information in encrypted form.
+      //#  The file extension name of public key is .pem (privacy enhanced mail).
       //~# PRIVATE KEY :
-      //#  It contains the secure login information in decrypted form
-      //#  File extensio .ppk (puTTY private key)
+      //#  It contains the secure login information in decrypted form.
+      //#  In Windows: The Private key decrypts this data allowing you to gain access to the login credentials.
+      //#  The Private key is used to remotely connect onto the instance via SSH.
+      //#  File extensio .ppk (puTTY private key).
+//* The Public key is held and kept by AWS, the private key is our responsibility to keep and ensure that it is not lost.
+//* It's possible to use the same key pair on multiple instances
+//^ It is our responsibility to maintain and install the latest OS & security patches 
+//^ released by the OS vendor as dictated within the AWS shared responsibility model.
+
+
 
 
 //~# Creating instance in EC2 Service with network security (Elastic compute cloud)
@@ -125,7 +134,7 @@
 //% Selet instances -> Click on lanuch instances -> Enter the name of the server -> select amazon linux -> Amaxon linux 2023 AMI (Free tier eligible) 
 //% -> Instance type -> t2.micro -> key pair (login) -> create new key pair -> enter key pair name -> create new key pair
 //% Enter network Settings and click on edit -> select availability zone -> enter security group name -> ssh (secure socket shell) 
-//% (tcp -> transmission protocol)
+//% (tcp -> transmission protocol) (port Range: 22)
 //% Click on add security group rules -> select HTTP -> select anywhere in source type (prot no. 80). 
 //% configure storage --> Numver of Instance ( 1 ) -> Click on Launch -> Click on instance id. 
 
@@ -155,3 +164,39 @@
 //~> Verify the service is started or not through CLI
 //> -> Select webserver1 -> open instance -> 
 //> -> sudo su -> which httpd -> systemct1 status httpd.service 
+
+//~* How to create EBS 
+//* open EC2 service -> click on volumes -> Create Volume
+//~* Types of EBS
+//* General purpose SSD (gp2) 
+//* general purpose SSD (gp3)
+//* privisoned IOPS SSD (io1) 
+//* privisoned IOPS ssd (io2)
+//* Cold hdd (sc1)
+//* throughput optimized hdd (st1)
+//* magnetic(standard)
+//~* Input Output operations IOPS
+//* Select gp2 in volume type -> Size 1gb -> Availability zone -> ap-south-1a. 
+//* Click on Create volume
+//* select the volume -> click on actions -> click on attach volume. 
+//* Select the instance -> Click on Attach volume
+
+//~^ Snapshot
+//^ Snapshots are the point in time copy of an EBS Volume
+//^ snpashots are the incremental backups 
+//~> How to attach volumes of one availbility zone to the instancin othe availabiliy zone
+//~> Click on volume -> Select the volumes click on create snpa sho -> Click on attach volume.
+
+//>  Cllick on snapshot -> select the snpshot -> Click on Action -> create volume for snap shorts -> select ap-south -1b zon -> Create volume.
+//? Click on volume -> select ap-south-1b volume -> Click on actions Click on attach volume -> Select the instance -> Click on attacth volume.
+
+//~! How to create templates 
+//! Launch one EC2 instance -> select the instance -> Actions -> Click on images and templates -> then create template from instance -> Enter the template name
+//! -> template version v1 -> Click on launch template. 
+//* click on launch instace from template.
+//* number of instance -> launch instance. 
+
+//~# How to create one more version of an existing template. 
+//# Click on Launch template -> Select the template -> Click on Actions -> click on modify template. 
+//# Enter template version V2 -> if we want any changes we can update as we require. -> Click on Create template version.
+//# Click on launch template. 
