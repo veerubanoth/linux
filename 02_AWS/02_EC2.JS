@@ -151,7 +151,7 @@
 //> Instances -> Launch instances -> Enter the name -> Select Amazon linux -> select only free tier aligible -> t2.micro -> 
 //> -> select an existin key pari or Create new pair -> Click on edit in network setting -> select the subnet -> select exising security group (or)
 //> -> create security group -> add http and https protocol -> Advanced details 
-//>  -> go to user data...
+//> -> go to user data...
 //% -> #!/bin/bash (selected bash)
 //% -> switch to the root user                    -> sudo su
 //% -> yum update -y                              ->(updating OS)
@@ -184,10 +184,10 @@
 //~^ Snapshot
 //^ Snapshots are the point in time copy of an EBS Volume
 //^ snpashots are the incremental backups 
-//~> How to attach volumes of one availbility zone to the instancin othe availabiliy zone
-//~> Click on volume -> Select the volumes click on create snpa sho -> Click on attach volume.
+//~> How to attach volumes of one availbility zone to the instance in other availabiliy zone
+//~> Click on volume -> Select the volumes click on create snapshot -> Click on attach volume.
 
-//>  Cllick on snapshot -> select the snpshot -> Click on Action -> create volume for snap shorts -> select ap-south -1b zon -> Create volume.
+//>  Cllick on snapshot -> select the snashot -> Click on Action -> create volume for snap shorts -> select ap-south -1b zon -> Create volume.
 //? Click on volume -> select ap-south-1b volume -> Click on actions Click on attach volume -> Select the instance -> Click on attacth volume.
 
 //~! How to create templates 
@@ -200,3 +200,24 @@
 //# Click on Launch template -> Select the template -> Click on Actions -> click on modify template. 
 //# Enter template version V2 -> if we want any changes we can update as we require. -> Click on Create template version.
 //# Click on launch template. 
+
+//~% How to create exact server of one region in another region
+//% Select the instance -> click on Action -> Image and templates -> Click on Create image
+//% image name -> image description -> Select tag imag and snapshots together -> Click on create image. 
+//% Click on AMIs in side pannel -> 
+//% Select the AMI -> ClicK on Action -> copy AMI -> Select Destination region -> Click on Cpy AMI.
+
+//% open new tab of Cloud -> select region north virginia -> Select AMIs from side pannel.
+//% Select the AMI -> Click on Launch instance from AMI -> Enter the name of server. 
+//%  Click on create new key pair -> give a key name -> allow all protocols at this point. 
+//%  Security group -> give desired security group name in edit -> select vpc -> Number of instances -> Launch instances. 
+//~* Another method to create a snapshot 
+//* Select the sanpshot click on action -> click on action -> copy Snapshot -> destination region -> Copy snapshot. 
+
+//* open north virgiona region -> Click on SnapSoht -> we can find copied snapshot.
+//* Select the snapshot -> click on action -> Click on create image for snapshot. 
+//% Enter the image name -> Copy the sanpshot name.
+//% Click on Create image. 
+//% Click on AMIs 
+//% Select the AMI -> Click on Launch instance from AMI -> Enter the name of server. 
+//%  Click on create new key pair or use an existing key pair-> create security group or select an existing one -> Click on Launch 

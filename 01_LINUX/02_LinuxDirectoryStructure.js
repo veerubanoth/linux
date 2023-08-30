@@ -77,8 +77,8 @@
 //* Winscp --> to copy the files from local machine to virtual server(Instance).
 
 
-//>  HVM - Hardware Virtual Machine
-//>  AMI - Amazon Machine Image
+//> HVM - Hardware Virtual Machine
+//> AMI - Amazon Machine Image
 //> pem -> privacy enhanced mail 
 //> ppk -> PuTTY private key
 
