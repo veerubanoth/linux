@@ -19,7 +19,7 @@
 //* q                      --> exit from the file. 
 //* head                   --> This show us first 10 lines of text file by default. 
 //* head -5 file.text      --> It display first 5 lines of text file. 
-//* tail file.text         --> It display last 5 lines of text file. 
+//* tail file.text         --> It display last 10 lines of text file. 
 
 //* nl file.text           --> prints the content of the file to the standard display, with line numbers.
 

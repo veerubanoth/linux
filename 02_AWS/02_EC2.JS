@@ -1,14 +1,15 @@
 //~* EC2 ELASTIC COMPUTE CLOUD (EC2)
 //* EC2 allows us to deploy virtual servers within our AWS environment. 
 //* Most people will require an EC2 instance within their environment as a part of at least one of their solutions. 
+
 //~% EC2 service can be broken down into the following components:
 //% Amazon Machine Images(AMIs)
 //% Instance types
 //% Instance Purchasing Options
 //% Tenancy 
-//% User Data
 //% Storage Options
 //% Security group
+//% User Data
 
 //~* AMI - AMAZON MACHINE IMAGE or HVM - Hardware virtual Machine
 //* AMIs are essentially templates of pre-configured EC2 instances which allow us to quicky lanch a new EC2 instance 
@@ -16,8 +17,10 @@
 //* An AMI is an image baseline with an operating system & applications along with any custom configuration. 
 //% The AWS marketplace is essentially an online store that allows you to puchase AMIs from trusted vendors.(Like SAP, Microsoft e.t.c)
 //% Community AMIs are also available a repository of AMIs that have been created and share by other AWS members. 
+
 //~% Coss Notes
-//* AMI is a template that contains software configuration (OS & Application software), Lanuch permision & the block device mapping that specifies 
+//* AMI is a template that contains software configuration (OS & Application software),
+//* Lanuch permision & the block device mapping that specifies 
 //* EBS volumes to attach it to the EC2 instances when they were launched. 
 //* ELASTIC BLOCK STORE VOLUME
 
@@ -157,7 +160,7 @@
 //% -> yum update -y                              ->(updating OS)
 //% -> yum install httpd -y                       -> install webserver package
 //% -> cd /var/www/html                           -> (create website document)
-//% -> echo "This is COSS Web Server"> index.html ->
+//% -> echo "This is COSS Web Server"> index.html -> website content
 //% -> service httpd start                        -> (To start the service Temporarly)
 //% -> chkconfig httpd on                         -> (To start the service permenently on)
 //> -> Number of instances 2 -> Click on launch -> View all Instances. 
@@ -169,7 +172,7 @@
 //* open EC2 service -> click on volumes -> Create Volume
 //~* Types of EBS
 //* General purpose SSD (gp2) 
-//* general purpose SSD (gp3)
+//* General purpose SSD (gp3)
 //* privisoned IOPS SSD (io1) 
 //* privisoned IOPS ssd (io2)
 //* Cold hdd (sc1)
@@ -185,7 +188,7 @@
 //^ Snapshots are the point in time copy of an EBS Volume
 //^ snpashots are the incremental backups 
 //~> How to attach volumes of one availbility zone to the instance in other availabiliy zone
-//~> Click on volume -> Select the volumes click on create snapshot -> Click on attach volume.
+//~> Click on volume -> Select the volumes cli  ck on create snapshot -> Click on attach volume.
 
 //>  Cllick on snapshot -> select the snashot -> Click on Action -> create volume for snap shorts -> select ap-south -1b zon -> Create volume.
 //? Click on volume -> select ap-south-1b volume -> Click on actions Click on attach volume -> Select the instance -> Click on attacth volume.
@@ -196,12 +199,12 @@
 //* click on launch instace from template.
 //* number of instance -> launch instance. 
 
-//~# How to create one more version of an existing template. 
+//~# How to create one more version of an existing template.
 //# Click on Launch template -> Select the template -> Click on Actions -> click on modify template. 
 //# Enter template version V2 -> if we want any changes we can update as we require. -> Click on Create template version.
 //# Click on launch template. 
 
-//~% How to create exact server of one region in another region
+//~% How to create server of one region into another region
 //% Select the instance -> click on Action -> Image and templates -> Click on Create image
 //% image name -> image description -> Select tag imag and snapshots together -> Click on create image. 
 //% Click on AMIs in side pannel -> 
@@ -214,10 +217,38 @@
 //~* Another method to create a snapshot 
 //* Select the sanpshot click on action -> click on action -> copy Snapshot -> destination region -> Copy snapshot. 
 
-//* open north virgiona region -> Click on SnapSoht -> we can find copied snapshot.
+//* open north virginia region -> Click on SnapSoht -> we can find copied snapshot.
 //* Select the snapshot -> click on action -> Click on create image for snapshot. 
 //% Enter the image name -> Copy the sanpshot name.
 //% Click on Create image. 
 //% Click on AMIs 
 //% Select the AMI -> Click on Launch instance from AMI -> Enter the name of server. 
-//%  Click on create new key pair or use an existing key pair-> create security group or select an existing one -> Click on Launch 
+//%  Click on create new key pair or use an existing key pair-> create security group or select an existing one -> Click on Launch.
+
+
+//~! Status Check in AWS console
+//# There are two status checks
+//#   System status check
+//#   Instance status check 
+//* System Status Check : Underline physical machine check 
+//# If it is hardware faile status will be displayed 0/2 Check passed
+//# If this check fails to rectify this issue we may need to stop and start Instance. 
+//# So that, AWS AZs entaire EC2 will be migrated to some other Physical system which is running fine
+//* Instance Status check: EC2 Instance Check
+//# If this instance check fail status will be displayed as 1/2 check pass
+//# To solve this issue we need to reboot 
+//# if it is unable to troubleshoot any above issue we need to AWS support
+
+//~^ Scalling Types 
+//^ Scale up      -> Increase the configuration of existing machine
+//^ Scale down    -> Decreasing the configuration of existing machine
+//^ Scale Out     -> Adding more servers to increase the capacity 
+//^ Scale in      -> Removing the servers to decrease the capacity 
+
+//~% Scalling 
+//% we can scale up and down instace type for that we have to stop the instance in console 
+//% We can scale up EBS volumes for this no need to stop the instance 
+//% We can scale up on fly
+//% we can not scale down EBS volumes because AWS not allowing to do. 
+//% Due to security reasons
+

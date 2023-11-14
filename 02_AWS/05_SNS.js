@@ -19,5 +19,26 @@
 //~* We can create auto scalling group by using 2 Methods 
 //% 1. Templates, 2. Launch Configuration (AMI)
 
-//% Creating auto Scalling using Templates
+//~% Creating auto Scalling using Templates
 //% Launch on EC2 Instance -> Create template
+//% -> Auto Scalling Group -> Create auto Scalling group -> Auto scalling group name 
+//% -> select launch template -> Next -> 
+//% -> select the instance type -> Availability Zone -> Next 
+//% -> No Load balancer -> Next -> desired capacity (2) -> Minimum Capacity -> maximum Capacity
+//% -> Target tracking scaling policy -> average CPU UTILIZATION -> target value -> 
+//% -> Click on add notification -> SNS topic -> select the SNS topic -> Next 
+//% -> Create auto scalling group.
+
+//~# Create auto Scalling using Launch Configuration (AMI)
+//# Launch on EC2 Instance -> Create AMI of existing instances. 
+//# Auto Scalling Group ->  Launch configuration name ->give a name -> select AMI -> Select Instance AMI -> t2.micro -> choose
+//# Security groups -> select existing one or create a new security group -> Select an existing key pair. 
+//# create launch configuration.
+//# view launch Configuration. 
+//# Go to Auto scaling group -> Create Auto scaling group ->Auto scaling group name -> Switch to launch configuration -> 
+//# select the launch configuration -> select template -> Availability Zone -> Next
+//# -> No Load balancer -> Next -> desired capacity (2) -> Minimum Capacity -> maximum Capacity
+//# -> Target tracking scaling policy -> average CPU UTILIZATION -> target value -> 
+//# -> Click on add notification -> SNS topic -> select the SNS topic -> Next 
+//# -> Create auto scalling group.
+
