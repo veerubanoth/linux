@@ -9,7 +9,7 @@
 //% Tenancy 
 //% Storage Options
 //% Security group
-//% User Data
+//% User Data     
 
 //~* AMI - AMAZON MACHINE IMAGE or HVM - Hardware virtual Machine
 //* AMIs are essentially templates of pre-configured EC2 instances which allow us to quicky lanch a new EC2 instance 
@@ -104,7 +104,6 @@
 //% when the instance is stopped or terminated, all saved data on disk is lost.
 //% If you reboot your data will remain intact. but not if we stop it.
 //% you'r unable to detach instance store volumes from the instance. 
-
 
 //~^ Security group
 //^ During the creation of EC2 instance you will be asked to select a security group for your instance. 
@@ -251,4 +250,3 @@
 //% We can scale up on fly
 //% we can not scale down EBS volumes because AWS not allowing to do. 
 //% Due to security reasons
-
